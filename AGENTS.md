@@ -16,6 +16,7 @@ Before making changes:
 - If the request seems mistaken or overcomplicated, say so
 - If a simpler solution exists, recommend it before implementing
 - If you are confused, stop and explain what is unclear
+
 Do not act certain when you are uncertain.
  
 ## 2. Keep the Solution Simple
@@ -27,6 +28,7 @@ Solve the requested problem with the minimum necessary code.
 - Do not add configurability or generalization unless requested
 - Prefer simple, readable code over clever code
 - If the solution feels too large, step back and simplify it
+
 Ask yourself:
 - Is this the smallest change that solves the problem?
 - Would a senior engineer consider this unnecessarily complex?
@@ -42,6 +44,7 @@ When editing existing code:
 - Match the existing style and conventions of the codebase
 - Do not fix neighboring issues unless the user asked
 - If you notice unrelated problems, mention them separately
+
 Every changed line should be easy to justify from the request.
  
 ## 4. Make Surgical Diffs
@@ -53,6 +56,7 @@ Keep edits local, focused, and easy to review.
 - Avoid broad rewrites when a targeted fix is enough
 - Preserve existing structure unless changing it is required
 - Do not delete pre-existing code unless asked
+
 Prefer small diffs over sweeping cleanup.
  
 ## 5. Work Toward Verifiable Outcomes
@@ -64,6 +68,7 @@ Examples:
 - "Add validation"    → add checks, verify invalid inputs are rejected
 - "Refactor this"     → preserve behavior, confirm tests still pass
 - "Optimize this"     → improve performance without changing correctness
+
 For multi-step tasks, make a short plan with verification points:
 1. Inspect current behavior  → verify: identify the real issue
 2. Implement minimal fix     → verify: affected behavior changes as expected
@@ -77,6 +82,7 @@ Understand surrounding code before editing it.
 - Identify local conventions before introducing new patterns
 - Do not infer architecture from one file when others are available
 - If context is missing, say so
+
 Do not patch blindly.
  
 ## 7. Preserve Intent
@@ -96,6 +102,7 @@ Pause and ask if:
 - The correct behavior is unclear
 - The task requires a product or architectural decision
 - You are choosing between tradeoffs the user should approve
+
 Do not fabricate certainty to stay moving.
  
 ## 9. Final Check Before You Finish
@@ -107,6 +114,7 @@ Before considering a task complete, confirm:
 - Assumptions were surfaced
 - Affected tests were run when possible
 - The final result matches the requested scope
+
 If something could not be verified, say so clearly.
  
 ---
