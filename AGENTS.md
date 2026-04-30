@@ -68,6 +68,7 @@ For multi-step tasks, make a short plan with verification points:
 1. Inspect current behavior  → verify: identify the real issue
 2. Implement minimal fix     → verify: affected behavior changes as expected
 3. Run tests                 → verify: no regressions introduced
+
 ## 6. Read Before You Write
  
 Understand surrounding code before editing it.
@@ -86,6 +87,7 @@ Do not accidentally erase meaning while making changes.
 - Preserve behavior unless the change is meant to alter it
 - Preserve public interfaces unless changing them is necessary
 - Call out any intentional behavior change explicitly
+
 ## 8. Ask at the Right Time
  
 Pause and ask if:
