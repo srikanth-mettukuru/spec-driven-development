@@ -30,15 +30,15 @@ per request via LangGraph's in-memory state machine.
 | Testing      | pytest + pytest-asyncio             |
 | Linting      | ruff                                |
 | Type check   | mypy                                |
-| Package mgr  | uv                                  |
- 
+
+
 ---
  
 ## Commands
  
 ```
 # Setup
-uv pip install -e ".[dev]"
+pip install -e ".[dev]"
 cp .env.example .env          # then fill in OPENAI_API_KEY
  
 # Run
