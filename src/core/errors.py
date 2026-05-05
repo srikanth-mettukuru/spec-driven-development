@@ -3,6 +3,7 @@ import logging
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
@@ -23,7 +24,7 @@ async def handle_validation_error(
             detail=str(exc), 
             code="VALIDATION_ERROR", 
             status_code=422
-            ).dict()
+            ).model_dump()
     )
 
 async def handle_http_exception(request: Request, exc: HTTPException) -> JSONResponse:
@@ -34,7 +35,7 @@ async def handle_http_exception(request: Request, exc: HTTPException) -> JSONRes
             detail=exc.detail, 
             code="HTTP_ERROR", 
             status_code=exc.status_code
-            ).dict()
+            ).model_dump()
     )
 
 async def handle_generic_exception(request: Request, exc: Exception) -> JSONResponse:
@@ -45,10 +46,10 @@ async def handle_generic_exception(request: Request, exc: Exception) -> JSONResp
             detail="An unexpected error occurred", 
             code="INTERNAL_ERROR", 
             status_code=500
-            ).dict()
+            ).model_dump()
     )
 
 def register_exception_handlers(app: FastAPI) -> None:
     app.add_exception_handler(RequestValidationError, handle_validation_error) # type: ignore[arg-type]
-    app.add_exception_handler(HTTPException, handle_http_exception) # type: ignore[arg-type]
+    app.add_exception_handler(StarletteHTTPException, handle_http_exception) # type: ignore[arg-type]
     app.add_exception_handler(Exception, handle_generic_exception)
